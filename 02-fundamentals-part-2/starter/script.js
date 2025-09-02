@@ -214,60 +214,106 @@
 ////////////////////////////////////
 // Coding Challenge #2 - Student Grade Manager
 
-const grades = [78, 85, 92, 67, 88, 95, 73, 82];
+// const grades = [78, 85, 92, 67, 88, 95, 73, 82];
 
-// Function to calculate average
-function calculateAverage(grades) {
-  let sum = 0;
-  for (let grade of grades) {
-    sum += grade;
-  }
-  return sum / grades.length;
-}
+// // Function to calculate average
+// function calculateAverage(grades) {
+//   let sum = 0;
+//   for (let grade of grades) {
+//     sum += grade;
+//   }
+//   return sum / grades.length;
+// }
 
-// Function to find highest grade
-function findHighestGrade(grades) {
-  let highest = grades[0];
-  for (let grade of grades) {
-    if (grade > highest) {
-      highest = grade;
-    }
-  }
-  return highest;
-}
+// // Function to find highest grade
+// function findHighestGrade(grades) {
+//   let highest = grades[0];
+//   for (let grade of grades) {
+//     if (grade > highest) {
+//       highest = grade;
+//     }
+//   }
+//   return highest;
+// }
 
-// Function to find lowest grade
-function findLowestGrade(grades) {
-  let lowest = grades[0];
-  for (let grade of grades) {
-    if (grade < lowest) {
-      lowest = grade;
-    }
-  }
-  return lowest;
-}
+// // Function to find lowest grade
+// function findLowestGrade(grades) {
+//   let lowest = grades[0];
+//   for (let grade of grades) {
+//     if (grade < lowest) {
+//       lowest = grade;
+//     }
+//   }
+//   return lowest;
+// }
 
-// Function to count passing students
-function countPassing(grades, passingGrade) {
-  let count = 0;
-  for (let grade of grades) {
-    if (grade >= passingGrade) {
-      count++;
-    }
-  }
-  return count;
-}
+// // Function to count passing students
+// function countPassing(grades, passingGrade) {
+//   let count = 0;
+//   for (let grade of grades) {
+//     if (grade >= passingGrade) {
+//       count++;
+//     }
+//   }
+//   return count;
+// }
 
-// Generate complete report
-const average = calculateAverage(grades);
-const highest = findHighestGrade(grades);
-const lowest = findLowestGrade(grades);
-const passing = countPassing(grades, 70);
+// // Generate complete report
+// const average = calculateAverage(grades);
+// const highest = findHighestGrade(grades);
+// const lowest = findLowestGrade(grades);
+// const passing = countPassing(grades, 70);
 
-console.log("=== GRADE REPORT ===");
-console.log(`Average: ${average.toFixed(2)}`);
-console.log(`Highest: ${highest}`);
-console.log(`Lowest: ${lowest}`);
-console.log(`Passing students: ${passing} out of ${grades.length}`);
+// console.log("=== GRADE REPORT ===");
+// console.log(`Average: ${average.toFixed(2)}`);
+// console.log(`Highest: ${highest}`);
+// console.log(`Lowest: ${lowest}`);
+// console.log(`Passing students: ${passing} out of ${grades.length}`);
+
+// The array Problem
+const RafaelArray = [
+  "Rafael", 
+  "Schmedtmann",
+  2037 - 1991,
+  "teacher",
+  ["Michael", "Peter", "Steven"]
+];
+
+console.log(RafaelArray);
+console.log(RafaelArray.length); 
+console.log(RafaelArray[0]);
+console.log(RafaelArray[2]);
+console.log(RafaelArray[RafaelArray.length - 1]);
+
+console.log("=== OBJECTS ===");
+const rafael = {
+  firstName: "Rafael",
+  lastName: "Schmedtmann",
+  age: 2037 - 1991,
+  job: "teacher",
+  friends: ["Michael", "Peter", "Steven"]
+};
+console.log(rafael);
+
+// ordered, indexed data - think lists
+const listOfYears = [1991, 2007, 1969, 2020];
+const shoppingList = ["bread", "milk", "eggs", "fruits"];
+const testScores = [85, 92, 78, 96, 88];
+
+const RafaelImproved = {
+  firstName: "Rafael",
+  lastName: "Schmedtmann",
+  age: 2037 - 1991,
+  job: "teacher",
+  friends: ["Michael", "Peter", "Steven"],
+  hasDriversLicense: true,
+
+calcAge: function () {
+    console.log(this); 
+    return 2037 - this.birthYear; 
+  },
+};
+
+console.log(jonasImproved.calcAge()); 
 
 
