@@ -1,35 +1,37 @@
 'use strict';
 
 const modalEl = document.querySelector('.modal');
-
 const overlayEl = document.querySelector('.overlay');
-
 const btnCloseModalEl = document.querySelector('.close-modal');
-
 const btnsOpenModalEl = document.querySelectorAll('.show-modal');
 
-console.log('Open buttons:', btnsOpenModalEl.length);
+let lastFocusedButton = null;
 
-// Create our openModal function
 const openModal = function () {
-  // Remove the hidden class from modal to make it visible
   modalEl.classList.remove('hidden');
-
-  // Remove the hidden class from overlay to show dark background
   overlayEl.classList.remove('hidden');
+  modalEl.focus();
+  lastFocusedButton = document.activeElement;
 };
 
-// Create our closeModal function
 const closeModal = function () {
-  // Add the hidden class back to modal to hide it
   modalEl.classList.add('hidden');
-
-  // Add the hidden class back to overlay to hide dark background
   overlayEl.classList.add('hidden');
+  if (lastFocusedButton) {
+    lastFocusedButton.focus();
+  }
 };
 
 btnsOpenModalEl.forEach(btn => btn.addEventListener('click', openModal));
-
 btnCloseModalEl.addEventListener('click', closeModal);
-
 overlayEl.addEventListener('click', closeModal);
+
+document.addEventListener('keydown', function (e) {
+  if (e.key === 'Escape' && !modalEl.classList.contains('hidden')) {
+    closeModal();
+  }
+});
+
+modalEl.setAttribute('role', 'dialog');
+modalEl.setAttribute('aria-modal', 'true');
+btnCloseModalEl.setAttribute('aria-label', 'Close modal');
