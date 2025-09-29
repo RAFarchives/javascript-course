@@ -1,241 +1,378 @@
-'use strict';
-console.log('=== BEHIND THE SCENES: SCOPING & HOISTING ===');
+// 'use strict';
+// console.log('=== BEHIND THE SCENES: SCOPING & HOISTING ===');
 
-console.log('Starting program');
+// console.log('Starting program');
 
-function alpha() {
-  console.log('alpha:start');
-  beta();
-  console.log('alpha:end');
-}
+// function alpha() {
+//   console.log('alpha:start');
+//   beta();
+//   console.log('alpha:end');
+// }
 
-function beta() {
-  console.log('beta');
-}
+// function beta() {
+//   console.log('beta');
+// }
 
-alpha();
+// alpha();
 
-function outerFunction() {
-  console.log('Outer function start');
-  innerFunction();
-  console.log('Outer function end');
-}
+// function outerFunction() {
+//   console.log('Outer function start');
+//   innerFunction();
+//   console.log('Outer function end');
+// }
 
-function innerFunction() {
-  console.log('Inner function');
-  console.trace();
-}
+// function innerFunction() {
+//   console.log('Inner function');
+//   console.trace();
+// }
 
-outerFunction();
-const globalVar = 'I am global';
+// outerFunction();
+// const globalVar = 'I am global';
 
-function anyFunction() {
-  console.log(globalVar);
-}
+// function anyFunction() {
+//   console.log(globalVar);
+// }
 
-if (true) {
-  let blockVar = 'I am block-scoped';
-  const alsoBlockVar = 'Me too';
-  var notBlockScoped = 'I leak out';
-}
+// if (true) {
+//   let blockVar = 'I am block-scoped';
+//   const alsoBlockVar = 'Me too';
+//   var notBlockScoped = 'I leak out';
+// }
 
-console.log(notBlockScoped);
+// console.log(notBlockScoped);
 
-const outer = 'global';
+// const outer = 'global';
 
-function demoScope() {
-  const inner = 'function';
-  if (true) {
-    const blockConst = 'block';
-    var functionVar = 'var-function-scoped';
-    console.log(outer, inner, blockConst, functionVar);
-  }
-  console.log(outer, inner, functionVar);
-}
+// function demoScope() {
+//   const inner = 'function';
+//   if (true) {
+//     const blockConst = 'block';
+//     var functionVar = 'var-function-scoped';
+//     console.log(outer, inner, blockConst, functionVar);
+//   }
+//   console.log(outer, inner, functionVar);
+// }
 
-demoScope();
+// demoScope();
 
-const name = 'GlobalName';
+// const name = 'GlobalName';
 
-function a() {
-  const name = 'FunctionName';
-  function b() {
-    console.log(name);
-  }
-  b();
-}
+// function a() {
+//   const name = 'FunctionName';
+//   function b() {
+//     console.log(name);
+//   }
+//   b();
+// }
 
-a();
+// a();
 
-console.log(varX);
+// console.log(varX);
 
-var varX = 1;
-let letX = 2;
-const constX = 3;
+// var varX = 1;
+// let letX = 2;
+// const constX = 3;
 
-console.log(varX); // 1
-console.log(letX); // 2
-console.log(constX); // 3
+// console.log(varX); // 1
+// console.log(letX); // 2
+// console.log(constX); // 3
 
-// Function hoisting examples
-console.log(addDecl(2, 3));
+// // Function hoisting examples
+// console.log(addDecl(2, 3));
 
-function addDecl(a, b) {
-  return a + b;
-}
-const addExpr = function (a, b) {
-  return a + b;
-};
-const addArrow = (a, b) => a + b;
+// function addDecl(a, b) {
+//   return a + b;
+// }
+// const addExpr = function (a, b) {
+//   return a + b;
+// };
+// const addArrow = (a, b) => a + b;
 
-console.log(addDecl(2, 3)); // 5
-console.log(addExpr(2, 3)); // 5
-console.log(addArrow(2, 3)); // 5
+// console.log(addDecl(2, 3)); // 5
+// console.log(addExpr(2, 3)); // 5
+// console.log(addArrow(2, 3)); // 5
 
-const apiUrl = 'https://example.com';
-console.log(apiUrl);
+// const apiUrl = 'https://example.com';
+// console.log(apiUrl);
 
-let title = 'Behind the Scenes';
+// let title = 'Behind the Scenes';
 
-function outer() {
-  const label = 'outer';
-  function inner() {
-    console.log('scope:', label); // expect 'outer'
-  }
-  inner();
-}
-outer();
+// function outer() {
+//   const label = 'outer';
+//   function inner() {
+//     console.log('scope:', label); // expect 'outer'
+//   }
+//   inner();
+// }
+// outer();
 
-function one() {
-  two();
-}
-function two() {
-  console.log('stack: two');
-}
-one();
+// function one() {
+//   two();
+// }
+// function two() {
+//   console.log('stack: two');
+// }
+// one();
 
-const person = {
-  name: 'Jonas',
-  greet: function () {
-    console.log(`Hello, I am ${this.name}`);
+// const person = {
+//   name: 'Jonas',
+//   greet: function () {
+//     console.log(`Hello, I am ${this.name}`);
+//   },
+// };
+
+// // Method borrowing
+// const anotherPerson = { name: 'Sarah' };
+// anotherPerson.greet = person.greet;
+// anotherPerson.greet();
+
+// // Detached function call
+// const greetFunction = person.greet;
+// greetFunction();
+
+// // This breaks in event handlers
+// const button = document.querySelector('button');
+// button.addEventListener('click', person.greet);
+
+// button.addEventListener('click', () => person.greet());
+
+// button.addEventListener('click', person.greet.bind(person));
+
+// const obj = {
+//   name: 'Object',
+
+//   regularMethod: function () {
+//     console.log('Regular:', this.name);
+//   },
+
+//   arrowMethod: () => {},
+// };
+
+// obj.regularMethod();
+// obj.arrowMethod();
+
+// const quiz = {
+//   name: 'Quiz Object',
+//   regularMethod() {
+//     console.log('Regular:', this.name);
+//   },
+//   arrowMethod: () => {
+//     console.log('Arrow:', this.name);
+//   },
+// };
+
+// quiz.regularMethod();
+// quiz.arrowMethod();
+
+// const timer = {
+//   name: 'Timer',
+
+//   // Old approach with self = this
+//   start: function () {
+//     console.log(`${this.name} starting...`);
+//     const self = this;
+
+//     setTimeout(function () {
+//       console.log(`${self.name} finished`);
+//     }, 1000);
+//   },
+
+//   // Modern approach with arrow function
+//   startModern: function () {
+//     console.log(`${this.name} starting modern...`);
+
+//     setTimeout(() => {
+//       console.log(`${this.name} finished modern`);
+//     }, 1500);
+//   },
+// };
+
+// timer.start();
+// timer.startModern();
+
+// const user = {
+//   name: 'Alice',
+//   hobbies: ['reading', 'coding', 'gaming'],
+
+//   printHobbiesBad: () => {
+//     this.hobbies.forEach(hobby => {
+//       console.log(`${this.name} likes ${hobby}`);
+//     });
+//   },
+
+//   printHobbiesGood() {
+//     this.hobbies.forEach(hobby => {
+//       console.log(`${this.name} likes ${hobby}`);
+//     });
+//   },
+// };
+
+// user.printHobbiesBad();
+// user.printHobbiesGood();
+
+// const functionTypes = {
+//   regularFunction: function () {
+//     console.log('Arguments length:', arguments.length);
+//     console.log('First argument:', arguments[0]);
+//   },
+
+//   arrowFunction: () => {
+//     console.log('Arrow function called');
+//   },
+
+//   modernFunction: (...args) => {
+//     console.log('Args length:', args.length);
+//     console.log('First arg:', args[0]);
+//   },
+// };
+// functionTypes.regularFunction('hello', 'world');
+// functionTypes.arrowFunction('test');
+// functionTypes.modernFunction('modern', 'approach');
+// const myTimer = {
+//   name: 'My Timer',
+//   startCountdown() {
+//     console.log(`${this.name} starting countdown...`);
+
+//     setTimeout(() => {
+//       console.log(`${this.name} countdown finished!`);
+//     }, 1000);
+//   },
+// };
+// myTimer.startCountdown();
+
+// // // PRIMITIVES IN STACK
+// // let age = 30;
+// // let oldAge = age;
+// // age = 31;
+
+// // console.log('age:', age);
+// // console.log('oldAge:', oldAge);
+
+// // // OBJECTS IN HEAP
+// // const me = { name: 'Jonas', age: 30 };
+// // const friend = me;
+
+// // friend.age = 27;
+
+// // console.log('me:', me);
+// // console.log('friend:', friend);
+
+// // function changeAge(person, newAge) {
+// //   person.age = newAge;
+// //   return person;
+// // }
+
+// const originalPerson = { name: 'Sarah', age: 25 };
+// const updatedPerson = changeAge(originalPerson, 30);
+
+// console.log('original:', originalPerson);
+// console.log('updated:', updatedPerson);
+// console.log('same object?:', originalPerson === updatedPerson);
+
+// const original = {
+//   name: 'Alice',
+//   age: 28,
+//   hobbies: ['reading', 'coding'],
+// };
+
+// // Spread operator shallow copy
+// const shallowCopy = { ...original };
+
+// shallowCopy.name = 'Bob';
+// console.log('original name:', original.name);
+// console.log('copy name:', shallowCopy.name);
+
+// // But nested objects are still shared
+// shallowCopy.hobbies.push('gaming');
+// console.log('original hobbies:', original.hobbies);
+// console.log('copy hobbies:', shallowCopy.hobbies);
+
+// const anotherCopy = Object.assign({}, original);
+// console.log('Object.assign copy:', anotherCopy);
+
+// const deepOriginal = {
+//   name: 'Charlie',
+//   age: 32,
+//   address: { city: 'Paris', country: 'France' },
+//   hobbies: ['travel', 'photography'],
+// };
+
+// // // Modern deep copy with structuredClone
+// // const deepCopy = structuredClone(deepOriginal);
+
+// // deepCopy.address.city = 'London';
+// // deepCopy.hobbies.push('cooking');
+
+// // console.log('original address:', deepOriginal.address);
+// // console.log('copy address:', deepCopy.address);
+// // console.log('original hobbies:', deepOriginal.hobbies);
+// // console.log('copy hobbies:', deepCopy.hobbies);
+
+// // const problemObject = {
+// //   name: 'Test',
+// //   date: new Date(),
+// //   method: function () {
+// //     return 'hello';
+// //   },
+// //   undefinedValue: undefined,
+// // };
+
+// // const brokenCopy = JSON.parse(JSON.stringify(problemObject));
+// // console.log('Broken copy:', brokenCopy);
+
+// // const workingCopy = structuredClone(problemObject);
+// // console.log('Working copy:', workingCopy);
+
+// const userManager = {
+//   users: [],
+
+//   addUser: function (userData) {
+
+//   },
+
+//   getUsers: function () {
+
+//   },
+// };
+
+// const originalUser = { name: 'John', preferences: { theme: 'dark' } };
+// userManager.addUser(originalUser);
+
+// originalUser.name = 'Modified';
+// console.log('Original changed:', originalUser);
+// console.log('Stored user:', userManager.getUsers()[0]);
+
+// function demonstrateThis() {
+//   console.log('this in strict mode:', this);
+// }
+// demonstrateThis();
+
+// const readOnlyObj = Object.freeze({ name: 'Frozen' });
+
+// try {
+//   readOnlyObj.name = 'Changed';
+//   console.log('Mutation succeeded');
+// } catch (error) {
+//   console.log('Strict mode caught error:', error.message);
+// }
+
+const userManager = {
+  users: [],
+
+  addUser: function (userData) {
+    const userCopy = structuredClone(userData);
+    this.users.push(userCopy);
+    return this;
+  },
+
+  getUsers: function () {
+    return [...this.users];
   },
 };
 
-// Method borrowing
-const anotherPerson = { name: 'Sarah' };
-anotherPerson.greet = person.greet;
-anotherPerson.greet();
+const originalUser = { name: 'John', preferences: { theme: 'dark' } };
+userManager.addUser(originalUser);
 
-// Detached function call
-const greetFunction = person.greet;
-greetFunction();
-
-// This breaks in event handlers
-const button = document.querySelector('button');
-button.addEventListener('click', person.greet);
-
-button.addEventListener('click', () => person.greet());
-
-button.addEventListener('click', person.greet.bind(person));
-
-const obj = {
-  name: 'Object',
-
-  regularMethod: function () {
-    console.log('Regular:', this.name);
-  },
-
-  arrowMethod: () => {},
-};
-
-obj.regularMethod();
-obj.arrowMethod();
-
-const quiz = {
-  name: 'Quiz Object',
-  regularMethod() {
-    console.log('Regular:', this.name);
-  },
-  arrowMethod: () => {
-    console.log('Arrow:', this.name);
-  },
-};
-
-quiz.regularMethod();
-quiz.arrowMethod();
-
-const timer = {
-  name: 'Timer',
-
-  // Old approach with self = this
-  start: function () {
-    console.log(`${this.name} starting...`);
-    const self = this;
-
-    setTimeout(function () {
-      console.log(`${self.name} finished`);
-    }, 1000);
-  },
-
-  // Modern approach with arrow function
-  startModern: function () {
-    console.log(`${this.name} starting modern...`);
-
-    setTimeout(() => {
-      console.log(`${this.name} finished modern`);
-    }, 1500);
-  },
-};
-
-timer.start();
-timer.startModern();
-
-const user = {
-  name: 'Alice',
-  hobbies: ['reading', 'coding', 'gaming'],
-
-  printHobbiesBad: () => {
-    this.hobbies.forEach(hobby => {
-      console.log(`${this.name} likes ${hobby}`);
-    });
-  },
-
-  printHobbiesGood() {
-    this.hobbies.forEach(hobby => {
-      console.log(`${this.name} likes ${hobby}`);
-    });
-  },
-};
-
-user.printHobbiesBad();
-user.printHobbiesGood();
-
-const functionTypes = {
-  regularFunction: function () {
-    console.log('Arguments length:', arguments.length);
-    console.log('First argument:', arguments[0]);
-  },
-
-  arrowFunction: () => {
-    console.log('Arrow function called');
-  },
-
-  modernFunction: (...args) => {
-    console.log('Args length:', args.length);
-    console.log('First arg:', args[0]);
-  },
-};
-functionTypes.regularFunction('hello', 'world');
-functionTypes.arrowFunction('test');
-functionTypes.modernFunction('modern', 'approach');
-const myTimer = {
-  name: 'My Timer',
-  startCountdown() {
-    console.log(`${this.name} starting countdown...`);
-
-    setTimeout(() => {
-      console.log(`${this.name} countdown finished!`);
-    }, 1000);
-  },
-};
-myTimer.startCountdown();
+originalUser.name = 'Modified';
+console.log('Original changed:', originalUser);
+console.log('Stored user:', userManager.getUsers()[0]);
