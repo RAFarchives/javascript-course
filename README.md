@@ -1,26 +1,47 @@
-Corpuz, John Rafael P.
-2023-103988
-INF235
+Corpuz, John Rafael P.  
+2023-103988  
+INF235  
 
+# JavaScript Fundamentals Course  
 
-JavaScript Fundamentals Course
+This repository contains all the activities and projects I have completed throughout my JavaScript Fundamentals course. Each folder represents a specific topic or project that demonstrates my progress and understanding of JavaScript concepts.
 
-Welcome to My complete JavaScript learning journey! This repository contains everything you need to master JavaScript fundamentals and build real applications.
+---
 
-I have created:
+## Projects Included
 
-- **BMI Calculator** - Health and fitness application
-- **BMI Comparison Tool** - Intelligent decision-making system
-- **Tip Calculator** - Real-world percentage and logic application
-- **Complete Developer Portfolio** - Professional GitHub showcase
+- **Guess My Number Game** – A number guessing game that applies DOM manipulation and conditional logic  
+- **Modal Window Project** – Demonstrates event handling and UI interaction using JavaScript  
+- **Pig Game** – A two-player dice game showcasing logic, functions, and score tracking  
+- **Mapty App** – A map-based workout tracker implementing geolocation and object-oriented programming  
 
-Skills I have Learned:
+---
 
-- **Variables & Data Types** - Store and manage information
-- **Operators & Expressions** - Perform calculations and comparisons
-- **Strings & Templates** - Handle text and create dynamic content
-- **Decision Making** - Build intelligent programs with if/else logic
-- **Type Conversion** - Handle different data types professionally
-- **Logical Operators** - Create complex conditional logic
-- **Modern JavaScript** - ES6+ features and best practices
-- **Git & GitHub** - Professional version control and portfolio building
+## Skills Developed
+
+- Variables, Data Types, and Operators  
+- Functions and Control Structures  
+- Arrays and Objects  
+- DOM Manipulation and Event Handling  
+- ES6+ Syntax and Modern JavaScript Features  
+- Code Debugging and Developer Skills  
+- Git and GitHub for Version Control  
+
+---
+
+## Repository Structure
+
+- `01-fundamentals-part-1` – Introduction to JavaScript basics  
+- `02-fundamentals-part-2` – Functions, arrays, and looping  
+- `03-developer-skills` – Debugging and clean coding practices  
+- `04-guess-my-number-game` – Interactive guessing game  
+- `05-modal` – Building and managing modal windows  
+- `06-pig-game` – Logic-based multiplayer dice game  
+- `07-behind-the-scenes` – Understanding how JavaScript works internally  
+- `08-mapty` – Workout tracking app using maps and OOP  
+
+---
+
+ **Additional Files:**  
+- `.gitignore` – For version control configuration  
+- `README.md` – Project documentation and summary  
